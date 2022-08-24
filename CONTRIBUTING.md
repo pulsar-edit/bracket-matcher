@@ -1,1 +1,1 @@
-See the [Atom contributing guide](https://github.com/atom/atom/blob/master/CONTRIBUTING.md)
+See the [contributing guide](https://github.com/pulsar-edit/pulsar/blob/master/CONTRIBUTING.md)
