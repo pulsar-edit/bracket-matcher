@@ -1,5 +1,4 @@
 # Bracket Matcher package
-[![CI](https://github.com/atom/bracket-matcher/actions/workflows/ci.yml/badge.svg)](https://github.com/atom/bracket-matcher/actions/workflows/ci.yml)
 
 Highlights and jumps between `[]`, `()`, and `{}`. Also highlights matching XML
 and HTML tags.
