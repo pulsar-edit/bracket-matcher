@@ -1,6 +1,7 @@
 const {Point, TextBuffer} = require('atom')
 
 const HAS_NEW_TEXT_BUFFER_VERSION = (new TextBuffer()).getLanguageMode().bufferDidFinishTransaction
+const path = require('path')
 
 describe('bracket matching', () => {
   let editorElement, editor, buffer
@@ -14,7 +15,7 @@ describe('bracket matching', () => {
 
     waitsForPromise(() => atom.packages.activatePackage('language-xml'))
 
-    waitsForPromise(() => atom.workspace.open('sample.js'))
+    waitsForPromise(() => atom.workspace.open(path.join(__dirname, 'fixtures', 'sample.js')))
 
     runs(() => {
       editor = atom.workspace.getActiveTextEditor()
@@ -314,7 +315,7 @@ describe('bracket matching', () => {
       describe(`${scopeName} tag matching`, () => {
         beforeEach(() => {
           waitsForPromise(() => atom.packages.activatePackage('language-html'))
-          waitsForPromise(() => atom.workspace.open('sample.xml'))
+          waitsForPromise(() => atom.workspace.open(path.join(__dirname, 'fixtures', 'sample.xml')))
 
           runs(() => {
             editor = atom.workspace.getActiveTextEditor()
@@ -593,7 +594,7 @@ describe('bracket matching', () => {
       forEachLanguageWithTags(scopeName => {
         describe(`in ${scopeName} files`, () => {
           beforeEach(() => {
-            waitsForPromise(() => atom.workspace.open('sample.xml'))
+            waitsForPromise(() => atom.workspace.open(path.join(__dirname, 'fixtures', 'sample.xml')))
 
             runs(() => {
               editor = atom.workspace.getActiveTextEditor()
@@ -768,7 +769,7 @@ describe('bracket matching', () => {
 
     describe('when there are multiple cursors', () => {
       beforeEach(() => {
-        waitsForPromise(() => atom.workspace.open('multiplecursor.md'))
+        waitsForPromise(() => atom.workspace.open(path.join(__dirname, 'fixtures', 'multiplecursor.md')))
         runs(() => {
           editor = atom.workspace.getActiveTextEditor()
           editorElement = atom.views.getView(editor)
@@ -799,7 +800,7 @@ describe('bracket matching', () => {
     forEachLanguageWithTags(scopeName => {
       describe(`${scopeName} tag matching`, () => {
         beforeEach(() => {
-          waitsForPromise(() => atom.workspace.open('sample.xml'))
+          waitsForPromise(() => atom.workspace.open(path.join(__dirname, 'fixtures', 'sample.xml')))
 
           runs(() => {
             editor = atom.workspace.getActiveTextEditor()
@@ -1627,7 +1628,7 @@ describe('bracket matching', () => {
 
   describe('bracket-matcher:close-tag', () => {
     beforeEach(() => {
-      waitsForPromise(() => atom.workspace.open('sample.html'))
+      waitsForPromise(() => atom.workspace.open(path.join(__dirname, 'fixtures', 'sample.html')))
 
       runs(() => {
         editor = atom.workspace.getActiveTextEditor()
@@ -1693,7 +1694,7 @@ describe('bracket matching', () => {
     })
 
     it('does not get confused in case of nested self closing tags', () => {
-      waitsForPromise(() => atom.workspace.open('sample.xml'))
+      waitsForPromise(() => atom.workspace.open(path.join(__dirname, 'fixtures', 'sample.xml')))
 
       runs(() => {
         editor = atom.workspace.getActiveTextEditor()
@@ -1716,7 +1717,7 @@ describe('bracket matching', () => {
     })
 
     it('does not get confused in case of self closing tags after the cursor', () => {
-      waitsForPromise(() => atom.workspace.open('sample.xml'))
+      waitsForPromise(() => atom.workspace.open(path.join(__dirname, 'fixtures', 'sample.xml')))
 
       runs(() => {
         editor = atom.workspace.getActiveTextEditor()
@@ -1742,7 +1743,7 @@ describe('bracket matching', () => {
     })
 
     it('does not get confused in case of nested self closing tags with `>` in their attributes', () => {
-      waitsForPromise(() => atom.workspace.open('sample.xml'))
+      waitsForPromise(() => atom.workspace.open(path.join(__dirname, 'fixtures', 'sample.xml')))
 
       runs(() => {
         editor = atom.workspace.getActiveTextEditor()
@@ -1778,7 +1779,7 @@ describe('bracket matching', () => {
     })
 
     it('does not get confused in case of self closing tags with `>` in their attributes after the cursor', () => {
-      waitsForPromise(() => atom.workspace.open('sample.xml'))
+      waitsForPromise(() => atom.workspace.open(path.join(__dirname, 'fixtures', 'sample.xml')))
 
       runs(() => {
         editor = atom.workspace.getActiveTextEditor()
