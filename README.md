@@ -1,3 +1,5 @@
+# This repo is now archived under Pulsar-Edit as it is Bundled into the core editor [#424](https://github.com/pulsar-edit/pulsar/pull/424)
+
 # Bracket Matcher package
 
 Highlights and jumps between `[]`, `()`, and `{}`. Also highlights matching XML
